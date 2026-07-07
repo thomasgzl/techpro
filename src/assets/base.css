@@ -1,0 +1,261 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f3ee;
+  --bg2: #ffffff;
+  --text: #1a1814;
+  --text2: #5a5650;
+  --accent: #7c3aed;
+  --accent2: #5b21b6;
+  --accent-soft: #ede9fe;
+  --green: #0f8c5a;
+  --green-soft: #e3f5ec;
+  --border: rgba(26,24,20,0.1);
+  --border2: rgba(26,24,20,0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 24px 60px rgba(26,24,20,0.14);
+  --nav-h: 84px;
+
+  /* Signature multi-stop gradient used across orbs, borders and glows */
+  --gradient-brand: linear-gradient(135deg, #7c3aed, #ec4899, #16a34a, #ea580c);
+
+  --glass-bg: rgba(255,255,255,0.6);
+  --glass-border: rgba(255,255,255,0.5);
+  --glass-blur: 18px;
+
+  /* Always-dark accent panels (footer, featured card, nav pill...) — this is
+     NOT the same token as --text, since --text flips with the theme while
+     these panels must stay a contrasting dark block in both themes. */
+  --ink: #1a1814;
+
+  /* Icon-badge tones for the digital-services cards, kept as tokens so they
+     can be re-tinted per theme instead of baking hex values into the data. */
+  --tone-web-bg: #eef2ff;     --tone-web-fg: #4f46e5;
+  --tone-design-bg: #fdf2f8;  --tone-design-fg: #be185d;
+  --tone-seo-bg: #f0fdf4;     --tone-seo-fg: #16a34a;
+  --tone-a11y-bg: #fff7ed;    --tone-a11y-fg: #ea580c;
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #131118;
+  --bg2: #1c1a23;
+  --text: #f1efe9;
+  --text2: #a39d95;
+  --accent: #9575f2;
+  --accent2: #b7a3f7;
+  --accent-soft: rgba(149,117,242,0.18);
+  --green: #34d399;
+  --green-soft: rgba(52,211,153,0.16);
+  --border: rgba(255,255,255,0.12);
+  --border2: rgba(255,255,255,0.07);
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.55);
+
+  /* Elevated dark surface: lighter than --bg so panels still read as "raised". */
+  --ink: #252230;
+
+  --glass-bg: rgba(28,26,35,0.55);
+  --glass-border: rgba(255,255,255,0.08);
+
+  --tone-web-bg: rgba(99,102,241,0.18);    --tone-web-fg: #a5b4fc;
+  --tone-design-bg: rgba(219,39,119,0.18); --tone-design-fg: #f9a8d4;
+  --tone-seo-bg: rgba(22,163,74,0.2);      --tone-seo-fg: #86efac;
+  --tone-a11y-bg: rgba(234,88,12,0.2);     --tone-a11y-fg: #fdba74;
+
+  color-scheme: dark;
+}
+
+html { scroll-behavior: auto; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(46px, 7vw, 84px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  color: var(--text);
+  margin-bottom: 28px;
+  max-width: 720px;
+}
+
+h1 .word { display: inline-block; overflow: hidden; margin-right: 0.22em; padding-bottom: 0.08em; }
+h1 .word > span { display: inline-block; }
+
+h1 span.accent-word {
+  background: var(--gradient-brand);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+/* Layout utilities shared across sections */
+.section {
+  padding: 100px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  color: var(--text2);
+  font-size: 17px;
+  font-weight: 300;
+  max-width: 520px;
+  margin-bottom: 56px;
+}
+
+/* Giant faded numeral used as an editorial background accent */
+.section-number {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(90px, 14vw, 220px);
+  color: var(--text);
+  opacity: 0.035;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+/* Glass card, used to layer content above gradient orbs */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Shared tag pill, used by services & digital cards */
+.tag {
+  background: var(--bg);
+  color: var(--text2);
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* Shared buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,0.3); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--text);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-secondary:hover { border-color: var(--text); }
+
+.btn-full {
+  width: 100%;
+  padding: 14px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.2s;
+  margin-top: 24px;
+}
+
+.btn-full.dark { background: var(--ink); color: white; }
+.btn-full.dark:hover { background: var(--accent); }
+.btn-full.light { background: var(--bg2); color: var(--text); }
+.btn-full.light:hover { background: var(--bg); }
+.btn-full.outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.3); }
+.btn-full.outline:hover { background: rgba(255,255,255,0.1); }
+
+/* Clears the floating fixed nav so page content never starts underneath it */
+.page-view { padding-top: 118px; }
+
+@media (max-width: 768px) {
+  .section { padding: 56px 20px; }
+  .section-number { display: none; }
+  .page-view { padding-top: 92px; }
+}
+
+/* Printing an invoice (see InvoiceEditor.vue): hide everything except the
+   invoice document itself, kept global since scoped styles can't reliably
+   target `body` from inside a component. */
+@media print {
+  body * { visibility: hidden; }
+  .invoice-print-root, .invoice-print-root * { visibility: visible; }
+  .invoice-print-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .invoice-doc { box-shadow: none; }
+}
