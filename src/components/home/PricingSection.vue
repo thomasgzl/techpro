@@ -1,17 +1,17 @@
 <template>
   <div class="section">
     <div class="section-number">04</div>
-    <div class="section-label" v-reveal>Tarifs</div>
-    <h2 v-reveal="{ delay: 0.05 }">Des prix clairs dès le départ</h2>
-    <p class="section-intro" v-reveal="{ delay: 0.1 }">Tous nos tarifs incluent le diagnostic. Vous savez exactement ce que vous payez avant toute intervention.</p>
+    <div class="section-label" v-reveal>{{ t('pricing.label') }}</div>
+    <h2 v-reveal="{ delay: 0.05 }">{{ t('pricing.title') }}</h2>
+    <p class="section-intro" v-reveal="{ delay: 0.1 }">{{ t('pricing.intro') }}</p>
 
     <div class="pricing-grid" v-reveal="{ children: '.pricing-card', stagger: 0.1 }">
       <div
         class="pricing-card"
         :class="[{ featured: plan.featured }, plan.featured ? '' : 'glass']"
         v-tilt="plan.featured ? false : { strength: 5 }"
-        v-for="plan in pricingPlans"
-        :key="plan.title"
+        v-for="(plan, index) in pricingPlans"
+        :key="index"
       >
         <div class="pricing-badge" v-if="plan.badge">{{ plan.badge }}</div>
         <h3>{{ plan.title }}</h3>
@@ -28,13 +28,13 @@
 
     <div class="digital-pricing-banner glass" v-reveal>
       <div class="dpb-left">
-        <div class="dpb-tag">Compétences digitales</div>
-        <h3>Un projet web, graphique ou SEO&nbsp;?</h3>
-        <p>Développement de site, identité visuelle, référencement, accessibilité — chaque projet est unique, les tarifs aussi. Parlons-en ensemble pour un devis personnalisé et sans engagement.</p>
-        <button class="btn-primary" v-magnetic style="margin-top: 8px;" @click="router.push('/contact')">Discutons de votre projet →</button>
+        <div class="dpb-tag">{{ t('pricing.digitalBanner.tag') }}</div>
+        <h3>{{ t('pricing.digitalBanner.title') }}</h3>
+        <p>{{ t('pricing.digitalBanner.text') }}</p>
+        <button class="btn-primary" v-magnetic style="margin-top: 8px;" @click="router.push('/contact')">{{ t('pricing.digitalBanner.cta') }}</button>
       </div>
       <div class="dpb-services">
-        <div class="dpb-item" v-for="item in digitalServices" :key="item.title">
+        <div class="dpb-item" v-for="(item, index) in digitalServices" :key="index">
           <IconBadge :icon="item.icon" :size="36" :radius="8" />
           <div><strong>{{ item.title }}</strong><span>{{ item.price }}</span></div>
         </div>
@@ -44,12 +44,15 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import IconBadge from '../common/IconBadge.vue'
-import { pricingPlans } from '../../data/pricingPlans.js'
-import { digitalServices } from '../../data/digitalServices.js'
 
 const router = useRouter()
+const { t, tm } = useI18n()
+const pricingPlans = computed(() => tm('pricing.plans'))
+const digitalServices = computed(() => tm('digital.items'))
 </script>
 
 <style scoped>

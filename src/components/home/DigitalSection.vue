@@ -1,22 +1,22 @@
 <template>
   <div class="section" id="section-digital">
     <div class="section-number">03</div>
-    <div class="section-label" v-reveal>Compétences digitales</div>
-    <h2 v-reveal="{ delay: 0.05 }">Au-delà du dépannage</h2>
-    <p class="section-intro" v-reveal="{ delay: 0.1 }">Développeur et créatif de formation, je mets également mes compétences web et design à votre service pour faire grandir votre présence en ligne.</p>
+    <div class="section-label" v-reveal>{{ t('digital.label') }}</div>
+    <h2 v-reveal="{ delay: 0.05 }">{{ t('digital.title') }}</h2>
+    <p class="section-intro" v-reveal="{ delay: 0.1 }">{{ t('digital.intro') }}</p>
 
     <div class="digital-banner" v-reveal>
       <GradientOrbs :triple="false" />
       <div class="digital-banner-text">
-        <span class="digital-badge">Nouveau</span>
-        <h3>Vous avez un projet web ou une identité à créer ?</h3>
-        <p>En plus du support informatique, je vous accompagne sur des projets digitaux : création de site, refonte graphique, référencement naturel ou audit d'accessibilité. Une seule personne de confiance pour tous vos besoins numériques.</p>
+        <span class="digital-badge">{{ t('digital.banner.badge') }}</span>
+        <h3>{{ t('digital.banner.title') }}</h3>
+        <p>{{ t('digital.banner.text') }}</p>
       </div>
       <div class="digital-banner-icon">✦</div>
     </div>
 
     <div class="digital-grid" v-reveal="{ children: '.digital-card', stagger: 0.1 }">
-      <div class="digital-card glass" v-tilt="{ strength: 5 }" v-for="item in digitalServices" :key="item.title">
+      <div class="digital-card glass" v-tilt="{ strength: 5 }" v-for="(item, index) in digitalServices" :key="index">
         <div class="digital-card-head">
           <IconBadge :icon="item.icon" :size="48" />
           <h3>{{ item.title }}</h3>
@@ -31,9 +31,13 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconBadge from '../common/IconBadge.vue'
 import GradientOrbs from '../common/GradientOrbs.vue'
-import { digitalServices } from '../../data/digitalServices.js'
+
+const { t, tm } = useI18n()
+const digitalServices = computed(() => tm('digital.items'))
 </script>
 
 <style scoped>

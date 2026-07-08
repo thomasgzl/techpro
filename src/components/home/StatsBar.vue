@@ -1,6 +1,6 @@
 <template>
   <div class="stats-bar" ref="barEl">
-    <div class="stat glass" v-for="(stat, index) in stats" :key="stat.label">
+    <div class="stat glass" v-for="(stat, index) in stats" :key="index">
       <span class="stat-num">{{ displayed[index] }}{{ stat.suffix }}</span>
       <div class="stat-label">{{ stat.label }}</div>
     </div>
@@ -8,17 +8,14 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onBeforeUnmount } from 'vue'
+import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { gsap, ScrollTrigger } from '../../animation/gsap.js'
 
-const stats = [
-  { num: 5, suffix: ' ans', label: "D'expérience terrain" },
-  { num: 24, suffix: 'h', label: "Délai moyen d'intervention" },
-  { num: 100, suffix: '%', label: 'Devis gratuit & sans engagement' },
-  { num: 3, suffix: ' mois', label: 'De garantie sur chaque réparation' },
-]
+const { tm } = useI18n()
+const stats = computed(() => tm('stats'))
 
-const displayed = reactive(stats.map(() => 0))
+const displayed = reactive([0, 0, 0, 0])
 const barEl = ref(null)
 let trigger = null
 
@@ -28,7 +25,7 @@ onMounted(() => {
     start: 'top 90%',
     once: true,
     onEnter: () => {
-      stats.forEach((stat, index) => {
+      stats.value.forEach((stat, index) => {
         const proxy = { value: 0 }
         gsap.to(proxy, {
           value: stat.num,

@@ -1,54 +1,54 @@
 <template>
   <div class="contact-form glass" v-reveal="{ delay: 0.1, y: 50 }">
-    <h3>Envoyer un message</h3>
+    <h3>{{ t('contact.form.title') }}</h3>
     <Transition name="swap" mode="out-in">
       <div v-if="!submitted">
         <div class="form-row">
           <div class="form-group">
-            <label>Prénom</label>
-            <input type="text" placeholder="Jean" v-model="form.prenom" :style="errorStyle('prenom')">
+            <label>{{ t('contact.form.firstName') }}</label>
+            <input type="text" :placeholder="t('contact.form.firstNamePlaceholder')" v-model="form.prenom" :style="errorStyle('prenom')">
           </div>
           <div class="form-group">
-            <label>Nom</label>
-            <input type="text" placeholder="Dupont" v-model="form.nom" :style="errorStyle('nom')">
+            <label>{{ t('contact.form.lastName') }}</label>
+            <input type="text" :placeholder="t('contact.form.lastNamePlaceholder')" v-model="form.nom" :style="errorStyle('nom')">
           </div>
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jean.dupont@email.com" v-model="form.email" :style="errorStyle('email')">
+          <label>{{ t('contact.form.email') }}</label>
+          <input type="email" :placeholder="t('contact.form.emailPlaceholder')" v-model="form.email" :style="errorStyle('email')">
         </div>
         <div class="form-group">
-          <label>Sujet</label>
+          <label>{{ t('contact.form.subject') }}</label>
           <select v-model="form.sujet" :style="errorStyle('sujet')">
-            <option value="">Choisissez un sujet…</option>
-            <option>Demande de devis</option>
-            <option>Urgence – panne</option>
-            <option>Question sur un service</option>
-            <option>Contrat entreprise</option>
-            <option>Autre</option>
+            <option value="">{{ t('contact.form.subjectPlaceholder') }}</option>
+            <option v-for="subject in subjects" :key="subject.value" :value="subject.value">{{ subject.label }}</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Décrivez votre problème ou votre question…" v-model="form.message" :style="errorStyle('message')"></textarea>
+          <label>{{ t('contact.form.message') }}</label>
+          <textarea :placeholder="t('contact.form.messagePlaceholder')" v-model="form.message" :style="errorStyle('message')"></textarea>
         </div>
         <p class="form-error" v-if="submitError">{{ submitError }}</p>
         <button class="btn-full dark" v-magnetic="0.15" :disabled="submitting" @click="submit">
-          {{ submitting ? 'Envoi…' : 'Envoyer le message →' }}
+          {{ submitting ? t('contact.form.submitting') : t('contact.form.submit') }}
         </button>
       </div>
       <div class="form-success" v-else>
         <div class="success-icon">📬</div>
-        <h4>Message envoyé !</h4>
-        <p>Merci pour votre message. Nous vous répondrons dans les prochaines heures.</p>
+        <h4>{{ t('contact.form.successTitle') }}</h4>
+        <p>{{ t('contact.form.successText') }}</p>
       </div>
     </Transition>
   </div>
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { supabase } from '../../lib/supabase.js'
+
+const { t, tm } = useI18n()
+const subjects = computed(() => tm('contact.form.subjects'))
 
 const form = reactive({ prenom: '', nom: '', email: '', sujet: '', message: '' })
 const errors = ref({})
@@ -85,7 +85,7 @@ async function submit() {
 
   if (error) {
     console.error('[contact_messages] échec de l\'envoi', error)
-    submitError.value = "Le message n'a pas pu être envoyé. Réessayez dans un instant."
+    submitError.value = t('contact.form.error')
     return
   }
 

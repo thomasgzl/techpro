@@ -1,0 +1,324 @@
+{
+  "meta": { "title": "TechPro — Conseil & Réparation Informatique" },
+  "nav": {
+    "services": "Services",
+    "contact": "Contact",
+    "rdv": "Prendre RDV",
+    "themeToLight": "Activer le thème clair",
+    "themeToDark": "Activer le thème sombre",
+    "langToggleLabel": "Passer le site en anglais"
+  },
+  "footer": {
+    "rights": "© 2025 TechPro · Annecy & environs · Tous droits réservés",
+    "adminLink": "Espace pro"
+  },
+  "hero": {
+    "tag": "Disponible 7j/7 · Annecy & environs",
+    "titleWords": [
+      { "text": "L'expert" },
+      { "text": "qui" },
+      { "text": "remet" },
+      { "text": "votre" },
+      { "text": "tech", "accent": true },
+      { "text": "en" },
+      { "text": "marche" }
+    ],
+    "sub": "Conseil, installation, dépannage et réparation pour tous vos appareils numériques. Rapide, fiable, et à prix transparent.",
+    "ctaPrimary": "Réserver un créneau",
+    "ctaSecondary": "Nous contacter",
+    "chips": [
+      { "title": "Devis gratuit", "sub": "Sans engagement" },
+      { "title": "Intervention <24h", "sub": "Délai moyen" },
+      { "title": "Garantie 3 mois", "sub": "Chaque réparation" }
+    ]
+  },
+  "stats": [
+    { "num": 5, "suffix": " ans", "label": "D'expérience terrain" },
+    { "num": 24, "suffix": "h", "label": "Délai moyen d'intervention" },
+    { "num": 100, "suffix": "%", "label": "Devis gratuit & sans engagement" },
+    { "num": 3, "suffix": " mois", "label": "De garantie sur chaque réparation" }
+  ],
+  "services": {
+    "label": "Ce que nous faisons",
+    "title": "Tous vos besoins informatiques, couverts",
+    "intro": "Du simple conseil au dépannage urgent, nous intervenons sur l'ensemble de vos appareils numériques avec expertise et transparence.",
+    "items": [
+      {
+        "icon": "🔧",
+        "title": "Réparation",
+        "description": "Écrans cassés, batteries défaillantes, claviers, connecteurs — nous remplaçons les composants et remettons vos appareils en état de marche.",
+        "tags": ["Ordinateurs", "Portables", "Tablettes"]
+      },
+      {
+        "icon": "💡",
+        "title": "Conseil & Installation",
+        "description": "Vous ne savez pas quel équipement choisir ? Nous vous guidons vers les meilleures options selon votre budget et vos usages, puis installons tout.",
+        "tags": ["Achat guidé", "Configuration", "Migration"]
+      },
+      {
+        "icon": "🛡️",
+        "title": "Sécurité & Virus",
+        "description": "Suppression de virus et malwares, installation d'antivirus, sécurisation de vos accès et de vos données personnelles. Naviguez l'esprit tranquille.",
+        "tags": ["Antivirus", "Backup", "Protection"]
+      },
+      {
+        "icon": "🚀",
+        "title": "Optimisation",
+        "description": "Votre machine est lente ? Nous la nettoyons, l'optimisons, remplaçons le disque par un SSD si nécessaire. Résultat : comme neuve.",
+        "tags": ["Nettoyage", "Upgrade SSD", "RAM"]
+      },
+      {
+        "icon": "📶",
+        "title": "Réseau & Box",
+        "description": "Configuration Wi-Fi, box internet, répéteurs, NAS, partage de fichiers en réseau local. Un réseau stable et rapide pour toute la maison.",
+        "tags": ["Wi-Fi", "Box", "Réseau local"]
+      },
+      {
+        "icon": "🏠",
+        "title": "Assistance à domicile",
+        "description": "Déplacement chez vous pour les interventions qui le nécessitent. Nous venons avec le matériel, vous n'avez rien à transporter.",
+        "tags": ["À domicile", "En atelier", "À distance"]
+      }
+    ]
+  },
+  "why": {
+    "label": "Pourquoi nous choisir",
+    "title": "Simple, rapide et sans mauvaise surprise",
+    "items": [
+      {
+        "icon": "✅",
+        "title": "Devis gratuit et sans engagement",
+        "description": "On vous explique le problème et le coût avant de commencer. Aucun frais caché, jamais."
+      },
+      {
+        "icon": "⚡",
+        "title": "Intervention rapide",
+        "description": "La plupart des réparations courantes sont effectuées dans la journée, parfois en une heure."
+      },
+      {
+        "icon": "🤝",
+        "title": "On vous explique tout",
+        "description": "On vulgarise, on forme, on montre. Pas de jargon, pas de condescendance."
+      },
+      {
+        "icon": "🔒",
+        "title": "Garantie sur toutes les réparations",
+        "description": "Chaque intervention est couverte 3 mois. Si le problème revient, on revient."
+      }
+    ],
+    "visual": {
+      "badge": "Nouvelle<br>entreprise",
+      "text": "Nous démarrons à Annecy et ses environs. Soyez parmi nos premiers clients et bénéficiez d'une attention toute particulière !"
+    }
+  },
+  "process": {
+    "label": "Comment ça se passe",
+    "title": "En 4 étapes simples",
+    "steps": [
+      { "title": "Prise de RDV", "description": "Choisissez un créneau en ligne en 2 minutes." },
+      { "title": "Diagnostic", "description": "On analyse le problème et vous donne un devis." },
+      { "title": "Réparation", "description": "Intervention rapide avec votre accord." },
+      { "title": "Livraison", "description": "Appareil rendu en parfait état, garanti 3 mois." }
+    ]
+  },
+  "digital": {
+    "label": "Compétences digitales",
+    "title": "Au-delà du dépannage",
+    "intro": "Développeur et créatif de formation, je mets également mes compétences web et design à votre service pour faire grandir votre présence en ligne.",
+    "banner": {
+      "badge": "Nouveau",
+      "title": "Vous avez un projet web ou une identité à créer ?",
+      "text": "En plus du support informatique, je vous accompagne sur des projets digitaux : création de site, refonte graphique, référencement naturel ou audit d'accessibilité. Une seule personne de confiance pour tous vos besoins numériques."
+    },
+    "items": [
+      {
+        "icon": "web",
+        "title": "Création de site web",
+        "description": "Sites vitrines, portfolios, sites pour artisans ou commerçants. Du design soigné au code propre, livré clé en main et facile à mettre à jour.",
+        "tags": ["HTML / CSS", "WordPress", "Responsive", "Site vitrine"],
+        "price": "Sur devis"
+      },
+      {
+        "icon": "design",
+        "title": "Graphisme & identité visuelle",
+        "description": "Logo, charte graphique, supports de communication (flyers, cartes de visite, réseaux sociaux). Un univers visuel cohérent qui reflète votre image.",
+        "tags": ["Logo", "Charte graphique", "Print", "Réseaux sociaux"],
+        "price": "Sur devis"
+      },
+      {
+        "icon": "seo",
+        "title": "Référencement naturel (SEO)",
+        "description": "Audit, optimisation des pages, stratégie de mots-clés, balises, vitesse de chargement. Être visible sur Google, ça s'apprend et ça se construit.",
+        "tags": ["Audit SEO", "On-page", "Google Search Console"],
+        "price": "Sur devis"
+      },
+      {
+        "icon": "accessibility",
+        "title": "Audit d'accessibilité",
+        "description": "Votre site est-il utilisable par tous ? J'analyse votre site selon les critères WCAG et vous fournis un rapport clair avec les corrections prioritaires.",
+        "tags": ["WCAG", "RGAA", "Rapport détaillé", "Mise en conformité"],
+        "price": "Sur devis"
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Tarifs",
+    "title": "Des prix clairs dès le départ",
+    "intro": "Tous nos tarifs incluent le diagnostic. Vous savez exactement ce que vous payez avant toute intervention.",
+    "plans": [
+      {
+        "title": "Dépannage simple",
+        "badge": null,
+        "priceLabel": "à partir de",
+        "price": "39",
+        "priceSuffix": "€",
+        "priceExtra": null,
+        "features": ["Diagnostic complet offert", "Nettoyage système", "Suppression de virus", "Conseils personnalisés", "Garantie 1 mois"],
+        "buttonLabel": "Réserver →",
+        "buttonRoute": "/rdv",
+        "buttonStyle": "dark",
+        "featured": false
+      },
+      {
+        "title": "Réparation complète",
+        "badge": "Le plus populaire",
+        "priceLabel": "à partir de",
+        "price": "79",
+        "priceSuffix": "€",
+        "priceExtra": null,
+        "features": ["Diagnostic approfondi", "Remplacement de pièces", "Nettoyage interne", "Optimisation complète", "Garantie 3 mois"],
+        "buttonLabel": "Réserver →",
+        "buttonRoute": "/rdv",
+        "buttonStyle": "outline",
+        "featured": true
+      },
+      {
+        "title": "Contrat entreprise",
+        "badge": null,
+        "priceLabel": null,
+        "price": "Sur",
+        "priceSuffix": null,
+        "priceExtra": "devis",
+        "features": ["Maintenance préventive", "Interventions prioritaires", "Assistance téléphonique", "Déplacements inclus", "Facturation mensuelle"],
+        "buttonLabel": "Nous contacter →",
+        "buttonRoute": "/contact",
+        "buttonStyle": "dark",
+        "featured": false
+      }
+    ],
+    "digitalBanner": {
+      "tag": "Compétences digitales",
+      "title": "Un projet web, graphique ou SEO ?",
+      "text": "Développement de site, identité visuelle, référencement, accessibilité — chaque projet est unique, les tarifs aussi. Parlons-en ensemble pour un devis personnalisé et sans engagement.",
+      "cta": "Discutons de votre projet →"
+    }
+  },
+  "contact": {
+    "info": {
+      "label": "Parlons-en",
+      "title": "On est là pour vous aider",
+      "text": "Une question avant de réserver ? Un problème urgent ? Contactez-nous par le moyen qui vous convient le mieux. Nous répondons généralement en moins de 2 heures.",
+      "methods": [
+        { "icon": "📞", "title": "Téléphone", "detail": "06 17 48 82 62 · Lun-Sam 8h–19h" },
+        { "icon": "✉️", "title": "Email", "detail": "contact@techpro.com" },
+        { "icon": "📍", "title": "Atelier", "detail": "Annecy · Sur rendez-vous" },
+        { "icon": "🏠", "title": "À domicile", "detail": "Déplacement Annecy & 30km autour" }
+      ]
+    },
+    "form": {
+      "title": "Envoyer un message",
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Jean",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Dupont",
+      "email": "Email",
+      "emailPlaceholder": "jean.dupont@email.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Choisissez un sujet…",
+      "subjects": [
+        { "value": "Demande de devis", "label": "Demande de devis" },
+        { "value": "Urgence – panne", "label": "Urgence – panne" },
+        { "value": "Question sur un service", "label": "Question sur un service" },
+        { "value": "Contrat entreprise", "label": "Contrat entreprise" },
+        { "value": "Autre", "label": "Autre" }
+      ],
+      "message": "Message",
+      "messagePlaceholder": "Décrivez votre problème ou votre question…",
+      "submit": "Envoyer le message →",
+      "submitting": "Envoi…",
+      "error": "Le message n'a pas pu être envoyé. Réessayez dans un instant.",
+      "successTitle": "Message envoyé !",
+      "successText": "Merci pour votre message. Nous vous répondrons dans les prochaines heures."
+    }
+  },
+  "faq": {
+    "label": "Questions fréquentes",
+    "items": [
+      {
+        "question": "Combien coûte un diagnostic ?",
+        "answer": "Le diagnostic est toujours gratuit et sans engagement. Nous vous expliquerons le problème et le coût de la réparation avant de commencer quoi que ce soit."
+      },
+      {
+        "question": "Venez-vous à domicile ?",
+        "answer": "Oui, nous nous déplaçons à Annecy et dans un rayon de 30 km autour. Les frais de déplacement sont de 20€ et sont déduits si vous confiez l'appareil à l'atelier."
+      },
+      {
+        "question": "Combien de temps dure une réparation ?",
+        "answer": "La plupart des réparations courantes (nettoyage, virus, optimisation) sont réalisées en 1 à 3 heures. Les réparations matérielles nécessitant des pièces peuvent prendre 24 à 48h."
+      },
+      {
+        "question": "Quelles marques prenez-vous en charge ?",
+        "answer": "Nous intervenons sur toutes les marques : Apple, Samsung, HP, Dell, Lenovo, Asus, Acer, Microsoft Surface, et bien d'autres. Aussi bien Windows que macOS."
+      },
+      {
+        "question": "Mes données sont-elles en sécurité ?",
+        "answer": "Absolument. Nous ne transmettons jamais vos données à des tiers. Avant toute intervention, nous vous recommandons une sauvegarde, que nous pouvons effectuer pour vous si nécessaire."
+      }
+    ]
+  },
+  "rdv": {
+    "label": "Agenda en ligne",
+    "title": "Choisissez votre créneau",
+    "intro": "Réservez en quelques clics. Vous recevrez une confirmation par email avec tous les détails de votre rendez-vous.",
+    "at": "à",
+    "calendar": {
+      "dayNames": ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+      "slotsFor": "Créneaux du {day} {month}"
+    },
+    "summary": {
+      "title": "📅 Créneau sélectionné",
+      "placeholder": "—"
+    },
+    "form": {
+      "title": "Vos informations",
+      "serviceLabel": "Type de service",
+      "services": [
+        { "value": "Réparation", "icon": "🔧", "label": "Réparation" },
+        { "value": "Installation", "icon": "💿", "label": "Installation" },
+        { "value": "Conseil", "icon": "💡", "label": "Conseil" },
+        { "value": "Optimisation", "icon": "🚀", "label": "Optimisation" }
+      ],
+      "name": "Prénom & Nom",
+      "namePlaceholder": "Jean Dupont",
+      "phone": "Téléphone",
+      "phonePlaceholder": "06 XX XX XX XX",
+      "email": "Email",
+      "emailPlaceholder": "jean@email.com",
+      "description": "Décrivez brièvement votre problème",
+      "descriptionPlaceholder": "Mon ordinateur est lent, ou mon écran est cassé…",
+      "submit": "Confirmer le rendez-vous →",
+      "submitting": "Envoi…",
+      "error": "La réservation n'a pas pu être enregistrée. Réessayez dans un instant.",
+      "alertNoSlot": "Veuillez sélectionner une date et un créneau.",
+      "alertNoService": "Veuillez choisir un type de service.",
+      "alertMissingFields": "Veuillez remplir tous les champs obligatoires.",
+      "confirmedTitle": "Rendez-vous confirmé !",
+      "clientLabel": "👤 Client : ",
+      "dateLabel": "📅 Date : ",
+      "serviceLabel2": "🔧 Service : ",
+      "emailSentLabel": "📧 Confirmation envoyée à : ",
+      "confirmedText": "Un email de confirmation vous a été envoyé. À bientôt !",
+      "resetButton": "Prendre un autre RDV"
+    }
+  }
+}

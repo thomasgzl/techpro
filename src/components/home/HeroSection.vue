@@ -4,23 +4,19 @@
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="hero-tag" v-reveal="{ y: 16 }">Disponible 7j/7 · Annecy & environs</div>
+        <div class="hero-tag" v-reveal="{ y: 16 }">{{ t('hero.tag') }}</div>
         <h1 ref="headline">
-          <span class="word"><span>L'expert</span></span>
-          <span class="word"><span>qui</span></span>
-          <span class="word"><span>remet</span></span>
-          <span class="word"><span>votre</span></span>
-          <span class="word"><span class="accent-word">tech</span></span>
-          <span class="word"><span>en</span></span>
-          <span class="word"><span>marche</span></span>
+          <span class="word" v-for="(word, index) in titleWords" :key="index">
+            <span :class="{ 'accent-word': word.accent }">{{ word.text }}</span>
+          </span>
         </h1>
-        <p class="hero-sub" v-reveal="{ delay: 0.15 }">Conseil, installation, dépannage et réparation pour tous vos appareils numériques. Rapide, fiable, et à prix transparent.</p>
+        <p class="hero-sub" v-reveal="{ delay: 0.15 }">{{ t('hero.sub') }}</p>
         <div class="hero-actions" v-reveal="{ delay: 0.25 }">
           <button class="btn-primary" v-magnetic @click="router.push('/rdv')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            Réserver un créneau
+            {{ t('hero.ctaPrimary') }}
           </button>
-          <button class="btn-secondary" v-magnetic @click="router.push('/contact')">Nous contacter</button>
+          <button class="btn-secondary" v-magnetic @click="router.push('/contact')">{{ t('hero.ctaSecondary') }}</button>
         </div>
       </div>
 
@@ -28,15 +24,15 @@
         <div class="visual-orb" v-parallax="{ speed: 0.2 }"></div>
         <div class="chip chip-1 glass" v-parallax="{ speed: -0.15 }">
           <span class="chip-icon">✅</span>
-          <div><strong>Devis gratuit</strong><span>Sans engagement</span></div>
+          <div><strong>{{ chips[0]?.title }}</strong><span>{{ chips[0]?.sub }}</span></div>
         </div>
         <div class="chip chip-2 glass" v-parallax="{ speed: 0.25 }">
           <span class="chip-icon">⚡</span>
-          <div><strong>Intervention &lt;24h</strong><span>Délai moyen</span></div>
+          <div><strong>{{ chips[1]?.title }}</strong><span>{{ chips[1]?.sub }}</span></div>
         </div>
         <div class="chip chip-3 glass" v-parallax="{ speed: -0.1 }">
           <span class="chip-icon">🔒</span>
-          <div><strong>Garantie 3 mois</strong><span>Chaque réparation</span></div>
+          <div><strong>{{ chips[2]?.title }}</strong><span>{{ chips[2]?.sub }}</span></div>
         </div>
       </div>
     </div>
@@ -44,13 +40,17 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import GradientOrbs from '../common/GradientOrbs.vue'
 import { gsap } from '../../animation/gsap.js'
 
 const router = useRouter()
+const { t, tm } = useI18n()
 const headline = ref(null)
+const titleWords = computed(() => tm('hero.titleWords'))
+const chips = computed(() => tm('hero.chips'))
 
 onMounted(() => {
   const spans = headline.value?.querySelectorAll('.word > span')

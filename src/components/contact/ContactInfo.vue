@@ -1,11 +1,11 @@
 <template>
   <div class="contact-info">
-    <div class="section-label" v-reveal>Parlons-en</div>
-    <h2 v-reveal="{ delay: 0.05 }">On est là pour vous aider</h2>
-    <p v-reveal="{ delay: 0.1 }">Une question avant de réserver ? Un problème urgent ? Contactez-nous par le moyen qui vous convient le mieux. Nous répondons généralement en moins de 2 heures.</p>
+    <div class="section-label" v-reveal>{{ t('contact.info.label') }}</div>
+    <h2 v-reveal="{ delay: 0.05 }">{{ t('contact.info.title') }}</h2>
+    <p v-reveal="{ delay: 0.1 }">{{ t('contact.info.text') }}</p>
 
     <div class="contact-methods" v-reveal="{ children: '.contact-method', stagger: 0.08, delay: 0.15 }">
-      <div class="contact-method glass" v-for="method in methods" :key="method.title">
+      <div class="contact-method glass" v-for="(method, index) in methods" :key="index">
         <div class="contact-method-icon">{{ method.icon }}</div>
         <div>
           <h4>{{ method.title }}</h4>
@@ -17,12 +17,11 @@
 </template>
 
 <script setup>
-const methods = [
-  { icon: '📞', title: 'Téléphone', detail: '06 17 48 82 62 · Lun-Sam 8h–19h' },
-  { icon: '✉️', title: 'Email', detail: 'contact@techpro.com' },
-  { icon: '📍', title: 'Atelier', detail: 'Annecy · Sur rendez-vous' },
-  { icon: '🏠', title: 'À domicile', detail: 'Déplacement Annecy & 30km autour' },
-]
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm } = useI18n()
+const methods = computed(() => tm('contact.info.methods'))
 </script>
 
 <style scoped>

@@ -1,14 +1,14 @@
 <template>
   <div class="section">
     <div class="section-number">02</div>
-    <div class="section-label" v-reveal>Comment ça se passe</div>
-    <h2 v-reveal="{ delay: 0.05 }">En 4 étapes simples</h2>
+    <div class="section-label" v-reveal>{{ t('process.label') }}</div>
+    <h2 v-reveal="{ delay: 0.05 }">{{ t('process.title') }}</h2>
 
     <div class="process-steps" ref="wrapEl">
       <svg class="process-line" viewBox="0 0 100 2" preserveAspectRatio="none">
         <line x1="12.5" y1="1" x2="87.5" y2="1" ref="pathEl" />
       </svg>
-      <div class="process-step glass" v-reveal="{ delay: 0.1 + index * 0.1, y: 24 }" v-for="(step, index) in steps" :key="step.title">
+      <div class="process-step glass" v-reveal="{ delay: 0.1 + index * 0.1, y: 24 }" v-for="(step, index) in steps" :key="index">
         <div class="step-num">{{ index + 1 }}</div>
         <h4>{{ step.title }}</h4>
         <p>{{ step.description }}</p>
@@ -18,15 +18,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { gsap } from '../../animation/gsap.js'
 
-const steps = [
-  { title: 'Prise de RDV', description: 'Choisissez un créneau en ligne en 2 minutes.' },
-  { title: 'Diagnostic', description: 'On analyse le problème et vous donne un devis.' },
-  { title: 'Réparation', description: 'Intervention rapide avec votre accord.' },
-  { title: 'Livraison', description: 'Appareil rendu en parfait état, garanti 3 mois.' },
-]
+const { t, tm } = useI18n()
+const steps = computed(() => tm('process.steps'))
 
 const wrapEl = ref(null)
 const pathEl = ref(null)

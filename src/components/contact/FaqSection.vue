@@ -1,11 +1,11 @@
 <template>
   <div class="faq-section" v-reveal="{ children: '.faq-item', stagger: 0.06 }">
-    <div class="section-label faq-label">Questions fréquentes</div>
+    <div class="section-label faq-label">{{ t('faq.label') }}</div>
     <div
       class="faq-item"
       :class="{ open: openIndex === index }"
       v-for="(item, index) in faqItems"
-      :key="item.question"
+      :key="index"
       @click="toggle(index)"
     >
       <div class="faq-question">
@@ -20,9 +20,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { faqItems } from '../../data/faq.js'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { gsap } from '../../animation/gsap.js'
+
+const { t, tm } = useI18n()
+const faqItems = computed(() => tm('faq.items'))
 
 const openIndex = ref(null)
 

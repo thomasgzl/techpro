@@ -1,7 +1,6 @@
 import { reactive, computed } from 'vue'
 import { supabase, isSupabaseConfigured } from '../lib/supabase.js'
-
-export const MONTHS_FR = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+import { i18n } from '../i18n/index.js'
 
 const ALL_SLOTS = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00', '18:00']
 
@@ -13,6 +12,10 @@ function startOfToday() {
 
 function startOfMonth(date) {
   return new Date(date.getFullYear(), date.getMonth(), 1)
+}
+
+function intlLocale() {
+  return i18n.global.locale.value === 'en' ? 'en-US' : 'fr-FR'
 }
 
 const TODAY = startOfToday()
@@ -62,7 +65,10 @@ async function loadTakenSlots() {
   state.takenByDay = map
 }
 
-const monthLabel = computed(() => `${MONTHS_FR[state.currentDate.getMonth()]} ${state.currentDate.getFullYear()}`)
+// "mai 2026" / "May 2026" — reactive on i18n.global.locale so it re-renders on language switch.
+const monthLabel = computed(() =>
+  new Intl.DateTimeFormat(intlLocale(), { month: 'long', year: 'numeric' }).format(state.currentDate),
+)
 
 const calendarCells = computed(() => {
   const y = state.currentDate.getFullYear()
@@ -103,11 +109,15 @@ const slots = computed(() => {
   }))
 })
 
+function formatSelectedDate() {
+  const date = new Date(state.currentDate.getFullYear(), state.currentDate.getMonth(), state.selectedDay)
+  return new Intl.DateTimeFormat(intlLocale(), { day: 'numeric', month: 'long', year: 'numeric' }).format(date)
+}
+
 const summaryText = computed(() => {
   if (!state.selectedDay) return null
-  const m = MONTHS_FR[state.currentDate.getMonth()]
-  let text = `${state.selectedDay} ${m} ${state.currentDate.getFullYear()}`
-  if (state.selectedSlot) text += ` à ${state.selectedSlot}`
+  let text = formatSelectedDate()
+  if (state.selectedSlot) text += ` ${i18n.global.t('rdv.at')} ${state.selectedSlot}`
   return text
 })
 
@@ -152,16 +162,15 @@ async function submitBooking({ name, phone, email, description }) {
 
   if (error) {
     console.error('[bookings] échec de la réservation', error)
-    state.submitError = "La réservation n'a pas pu être enregistrée. Réessayez dans un instant."
+    state.submitError = i18n.global.t('rdv.form.error')
     return false
   }
 
-  const monthName = MONTHS_FR[state.currentDate.getMonth()]
   state.confirmedDetails = {
     name,
     email,
     service: state.selectedService,
-    dateText: `${state.selectedDay} ${monthName} ${state.currentDate.getFullYear()} à ${state.selectedSlot}`,
+    dateText: `${formatSelectedDate()} ${i18n.global.t('rdv.at')} ${state.selectedSlot}`,
   }
 
   loadTakenSlots()

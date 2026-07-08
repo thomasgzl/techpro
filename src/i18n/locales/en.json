@@ -1,0 +1,325 @@
+{
+  "meta": { "title": "TechPro — IT Consulting & Repair" },
+  "nav": {
+    "services": "Services",
+    "contact": "Contact",
+    "rdv": "Book Appointment",
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme",
+    "langToggleLabel": "Switch site to French"
+  },
+  "footer": {
+    "rights": "© 2025 TechPro · Annecy & surrounding area · All rights reserved",
+    "adminLink": "Pro area"
+  },
+  "hero": {
+    "tag": "Available 7 days a week · Annecy & surrounding area",
+    "titleWords": [
+      { "text": "The" },
+      { "text": "expert" },
+      { "text": "who" },
+      { "text": "gets" },
+      { "text": "your" },
+      { "text": "tech", "accent": true },
+      { "text": "running" },
+      { "text": "again" }
+    ],
+    "sub": "Advice, setup, troubleshooting and repair for all your digital devices. Fast, reliable, and transparently priced.",
+    "ctaPrimary": "Book a time slot",
+    "ctaSecondary": "Contact us",
+    "chips": [
+      { "title": "Free quote", "sub": "No obligation" },
+      { "title": "Response <24h", "sub": "Average turnaround" },
+      { "title": "3-month warranty", "sub": "Every repair" }
+    ]
+  },
+  "stats": [
+    { "num": 5, "suffix": " yrs", "label": "Of hands-on experience" },
+    { "num": 24, "suffix": "h", "label": "Average response time" },
+    { "num": 100, "suffix": "%", "label": "Free, no-obligation quotes" },
+    { "num": 3, "suffix": " mo", "label": "Warranty on every repair" }
+  ],
+  "services": {
+    "label": "What we do",
+    "title": "All your IT needs, covered",
+    "intro": "From simple advice to urgent repairs, we handle all your digital devices with expertise and transparency.",
+    "items": [
+      {
+        "icon": "🔧",
+        "title": "Repair",
+        "description": "Cracked screens, failing batteries, keyboards, connectors — we replace the components and get your devices working again.",
+        "tags": ["Computers", "Laptops", "Tablets"]
+      },
+      {
+        "icon": "💡",
+        "title": "Advice & Setup",
+        "description": "Not sure which equipment to choose? We guide you toward the best options for your budget and needs, then set everything up.",
+        "tags": ["Guided purchase", "Configuration", "Migration"]
+      },
+      {
+        "icon": "🛡️",
+        "title": "Security & Viruses",
+        "description": "Virus and malware removal, antivirus installation, securing your accounts and personal data. Browse with peace of mind.",
+        "tags": ["Antivirus", "Backup", "Protection"]
+      },
+      {
+        "icon": "🚀",
+        "title": "Optimization",
+        "description": "Is your machine slow? We clean it up, optimize it, and swap the drive for an SSD if needed. Result: like new.",
+        "tags": ["Cleanup", "SSD upgrade", "RAM"]
+      },
+      {
+        "icon": "📶",
+        "title": "Network & Router",
+        "description": "Wi-Fi setup, internet box, range extenders, NAS, local file sharing. A stable, fast network for the whole house.",
+        "tags": ["Wi-Fi", "Router", "Local network"]
+      },
+      {
+        "icon": "🏠",
+        "title": "On-site support",
+        "description": "We come to you for interventions that require it. We bring the equipment — you don't have to carry anything.",
+        "tags": ["At home", "In workshop", "Remote"]
+      }
+    ]
+  },
+  "why": {
+    "label": "Why choose us",
+    "title": "Simple, fast, and no bad surprises",
+    "items": [
+      {
+        "icon": "✅",
+        "title": "Free quote, no obligation",
+        "description": "We explain the problem and the cost before starting. No hidden fees, ever."
+      },
+      {
+        "icon": "⚡",
+        "title": "Fast turnaround",
+        "description": "Most common repairs are done the same day, sometimes within the hour."
+      },
+      {
+        "icon": "🤝",
+        "title": "We explain everything",
+        "description": "We simplify, we teach, we show. No jargon, no condescension."
+      },
+      {
+        "icon": "🔒",
+        "title": "Warranty on every repair",
+        "description": "Every job is covered for 3 months. If the problem comes back, so do we."
+      }
+    ],
+    "visual": {
+      "badge": "New<br>business",
+      "text": "We're just getting started in Annecy and the surrounding area. Be one of our first clients and enjoy some extra-special attention!"
+    }
+  },
+  "process": {
+    "label": "How it works",
+    "title": "In 4 simple steps",
+    "steps": [
+      { "title": "Book an appointment", "description": "Choose a time slot online in 2 minutes." },
+      { "title": "Diagnosis", "description": "We analyze the problem and give you a quote." },
+      { "title": "Repair", "description": "Quick intervention with your approval." },
+      { "title": "Delivery", "description": "Device returned in perfect condition, guaranteed for 3 months." }
+    ]
+  },
+  "digital": {
+    "label": "Digital skills",
+    "title": "Beyond repair services",
+    "intro": "Trained as a developer and designer, I also put my web and design skills at your service to grow your online presence.",
+    "banner": {
+      "badge": "New",
+      "title": "Have a website or brand identity project?",
+      "text": "Beyond IT support, I can help with digital projects: website creation, graphic redesign, SEO, or accessibility audits. One trusted person for all your digital needs."
+    },
+    "items": [
+      {
+        "icon": "web",
+        "title": "Website creation",
+        "description": "Showcase sites, portfolios, sites for craftspeople or shop owners. From polished design to clean code, delivered turnkey and easy to update.",
+        "tags": ["HTML / CSS", "WordPress", "Responsive", "Showcase site"],
+        "price": "On request"
+      },
+      {
+        "icon": "design",
+        "title": "Graphic design & branding",
+        "description": "Logo, brand guidelines, communication materials (flyers, business cards, social media). A consistent visual identity that reflects your image.",
+        "tags": ["Logo", "Brand guidelines", "Print", "Social media"],
+        "price": "On request"
+      },
+      {
+        "icon": "seo",
+        "title": "Search engine optimization (SEO)",
+        "description": "Audit, page optimization, keyword strategy, tags, load speed. Being visible on Google is something you learn and build.",
+        "tags": ["SEO audit", "On-page", "Google Search Console"],
+        "price": "On request"
+      },
+      {
+        "icon": "accessibility",
+        "title": "Accessibility audit",
+        "description": "Is your site usable by everyone? I analyze your site against WCAG criteria and provide a clear report with priority fixes.",
+        "tags": ["WCAG", "RGAA", "Detailed report", "Compliance"],
+        "price": "On request"
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Clear pricing from the start",
+    "intro": "All our rates include the diagnosis. You know exactly what you're paying before any work begins.",
+    "plans": [
+      {
+        "title": "Simple repair",
+        "badge": null,
+        "priceLabel": "from",
+        "price": "39",
+        "priceSuffix": "€",
+        "priceExtra": null,
+        "features": ["Free full diagnosis", "System cleanup", "Virus removal", "Personalized advice", "1-month warranty"],
+        "buttonLabel": "Book →",
+        "buttonRoute": "/rdv",
+        "buttonStyle": "dark",
+        "featured": false
+      },
+      {
+        "title": "Full repair",
+        "badge": "Most popular",
+        "priceLabel": "from",
+        "price": "79",
+        "priceSuffix": "€",
+        "priceExtra": null,
+        "features": ["In-depth diagnosis", "Parts replacement", "Internal cleaning", "Full optimization", "3-month warranty"],
+        "buttonLabel": "Book →",
+        "buttonRoute": "/rdv",
+        "buttonStyle": "outline",
+        "featured": true
+      },
+      {
+        "title": "Business contract",
+        "badge": null,
+        "priceLabel": null,
+        "price": "On",
+        "priceSuffix": null,
+        "priceExtra": "request",
+        "features": ["Preventive maintenance", "Priority interventions", "Phone support", "Travel included", "Monthly billing"],
+        "buttonLabel": "Contact us →",
+        "buttonRoute": "/contact",
+        "buttonStyle": "dark",
+        "featured": false
+      }
+    ],
+    "digitalBanner": {
+      "tag": "Digital skills",
+      "title": "A web, graphic, or SEO project?",
+      "text": "Website development, branding, SEO, accessibility — every project is unique, and so is its price. Let's talk about a personalized, no-obligation quote.",
+      "cta": "Let's discuss your project →"
+    }
+  },
+  "contact": {
+    "info": {
+      "label": "Let's talk",
+      "title": "We're here to help",
+      "text": "A question before booking? An urgent problem? Contact us however suits you best. We usually reply within 2 hours.",
+      "methods": [
+        { "icon": "📞", "title": "Phone", "detail": "06 17 48 82 62 · Mon-Sat 8am–7pm" },
+        { "icon": "✉️", "title": "Email", "detail": "contact@techpro.com" },
+        { "icon": "📍", "title": "Workshop", "detail": "Annecy · By appointment" },
+        { "icon": "🏠", "title": "On-site", "detail": "Annecy & within 30km" }
+      ]
+    },
+    "form": {
+      "title": "Send a message",
+      "firstName": "First name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Smith",
+      "email": "Email",
+      "emailPlaceholder": "john.smith@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Choose a subject…",
+      "subjects": [
+        { "value": "Demande de devis", "label": "Quote request" },
+        { "value": "Urgence – panne", "label": "Urgent - breakdown" },
+        { "value": "Question sur un service", "label": "Question about a service" },
+        { "value": "Contrat entreprise", "label": "Business contract" },
+        { "value": "Autre", "label": "Other" }
+      ],
+      "message": "Message",
+      "messagePlaceholder": "Describe your problem or question…",
+      "submit": "Send message →",
+      "submitting": "Sending…",
+      "error": "The message could not be sent. Please try again in a moment.",
+      "successTitle": "Message sent!",
+      "successText": "Thank you for your message. We'll get back to you within a few hours."
+    }
+  },
+  "faq": {
+    "label": "Frequently asked questions",
+    "items": [
+      {
+        "question": "How much does a diagnosis cost?",
+        "answer": "The diagnosis is always free and with no obligation. We'll explain the problem and the repair cost before starting anything."
+      },
+      {
+        "question": "Do you come to my home?",
+        "answer": "Yes, we travel to Annecy and within a 30 km radius. Travel fees are €20 and are deducted if you drop the device off at the workshop."
+      },
+      {
+        "question": "How long does a repair take?",
+        "answer": "Most common repairs (cleaning, viruses, optimization) are done in 1 to 3 hours. Hardware repairs requiring parts can take 24 to 48h."
+      },
+      {
+        "question": "Which brands do you support?",
+        "answer": "We work on all brands: Apple, Samsung, HP, Dell, Lenovo, Asus, Acer, Microsoft Surface, and many more. Both Windows and macOS."
+      },
+      {
+        "question": "Is my data safe?",
+        "answer": "Absolutely. We never share your data with third parties. Before any intervention, we recommend a backup, which we can do for you if needed."
+      }
+    ]
+  },
+  "rdv": {
+    "label": "Online booking",
+    "title": "Choose your time slot",
+    "intro": "Book in just a few clicks. You'll receive an email confirmation with all the details of your appointment.",
+    "at": "at",
+    "calendar": {
+      "dayNames": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      "slotsFor": "Slots for {day} {month}"
+    },
+    "summary": {
+      "title": "📅 Selected time slot",
+      "placeholder": "—"
+    },
+    "form": {
+      "title": "Your information",
+      "serviceLabel": "Service type",
+      "services": [
+        { "value": "Réparation", "icon": "🔧", "label": "Repair" },
+        { "value": "Installation", "icon": "💿", "label": "Installation" },
+        { "value": "Conseil", "icon": "💡", "label": "Consulting" },
+        { "value": "Optimisation", "icon": "🚀", "label": "Optimization" }
+      ],
+      "name": "Full name",
+      "namePlaceholder": "John Smith",
+      "phone": "Phone",
+      "phonePlaceholder": "06 XX XX XX XX",
+      "email": "Email",
+      "emailPlaceholder": "john@email.com",
+      "description": "Briefly describe your problem",
+      "descriptionPlaceholder": "My computer is slow, or my screen is cracked…",
+      "submit": "Confirm appointment →",
+      "submitting": "Sending…",
+      "error": "The booking could not be saved. Please try again in a moment.",
+      "alertNoSlot": "Please select a date and time slot.",
+      "alertNoService": "Please choose a service type.",
+      "alertMissingFields": "Please fill in all required fields.",
+      "confirmedTitle": "Appointment confirmed!",
+      "clientLabel": "👤 Client: ",
+      "dateLabel": "📅 Date: ",
+      "serviceLabel2": "🔧 Service: ",
+      "emailSentLabel": "📧 Confirmation sent to: ",
+      "confirmedText": "A confirmation email has been sent to you. See you soon!",
+      "resetButton": "Book another appointment"
+    }
+  }
+}

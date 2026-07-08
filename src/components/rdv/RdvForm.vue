@@ -1,77 +1,77 @@
 <template>
   <div class="rdv-form glass" v-reveal="{ delay: 0.1, y: 40 }">
     <div class="rdv-summary" :class="{ visible: summaryText }">
-      <h4>📅 Créneau sélectionné</h4>
-      <p>{{ summaryText || '—' }}</p>
+      <h4>{{ t('rdv.summary.title') }}</h4>
+      <p>{{ summaryText || t('rdv.summary.placeholder') }}</p>
     </div>
 
-    <h3>Vos informations</h3>
+    <h3>{{ t('rdv.form.title') }}</h3>
 
     <Transition name="swap" mode="out-in">
       <div v-if="!state.confirmedDetails" key="form">
-        <div class="section-label service-selector-label">Type de service</div>
+        <div class="section-label service-selector-label">{{ t('rdv.form.serviceLabel') }}</div>
         <div class="service-selector">
           <div
             class="service-option"
             v-for="option in serviceOptions"
-            :key="option.name"
-            :class="{ selected: state.selectedService === option.name }"
-            @click="selectService(option.name)"
+            :key="option.value"
+            :class="{ selected: state.selectedService === option.value }"
+            @click="selectService(option.value)"
           >
-            <span class="opt-icon">{{ option.icon }}</span><span>{{ option.name }}</span>
+            <span class="opt-icon">{{ option.icon }}</span><span>{{ option.label }}</span>
           </div>
         </div>
 
         <div class="form-group">
-          <label>Prénom & Nom</label>
-          <input type="text" placeholder="Jean Dupont" v-model="name">
+          <label>{{ t('rdv.form.name') }}</label>
+          <input type="text" :placeholder="t('rdv.form.namePlaceholder')" v-model="name">
         </div>
         <div class="form-group">
-          <label>Téléphone</label>
-          <input type="tel" placeholder="06 XX XX XX XX" v-model="phone">
+          <label>{{ t('rdv.form.phone') }}</label>
+          <input type="tel" :placeholder="t('rdv.form.phonePlaceholder')" v-model="phone">
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jean@email.com" v-model="email">
+          <label>{{ t('rdv.form.email') }}</label>
+          <input type="email" :placeholder="t('rdv.form.emailPlaceholder')" v-model="email">
         </div>
         <div class="form-group">
-          <label>Décrivez brièvement votre problème</label>
-          <textarea placeholder="Mon ordinateur est lent, ou mon écran est cassé…" v-model="description" style="min-height: 80px;"></textarea>
+          <label>{{ t('rdv.form.description') }}</label>
+          <textarea :placeholder="t('rdv.form.descriptionPlaceholder')" v-model="description" style="min-height: 80px;"></textarea>
         </div>
         <p class="form-error" v-if="state.submitError">{{ state.submitError }}</p>
         <button class="btn-full dark" v-magnetic="0.15" :disabled="state.submitting" @click="submit">
-          {{ state.submitting ? 'Envoi…' : 'Confirmer le rendez-vous →' }}
+          {{ state.submitting ? t('rdv.form.submitting') : t('rdv.form.submit') }}
         </button>
       </div>
 
       <div class="rdv-confirmed" v-else key="confirmed">
         <div class="conf-icon">✅</div>
-        <h3>Rendez-vous confirmé !</h3>
+        <h3>{{ t('rdv.form.confirmedTitle') }}</h3>
         <div class="rdv-details">
-          <p><span>👤 Client : </span>{{ state.confirmedDetails.name }}</p>
-          <p><span>📅 Date : </span>{{ state.confirmedDetails.dateText }}</p>
-          <p><span>🔧 Service : </span>{{ state.confirmedDetails.service }}</p>
-          <p><span>📧 Confirmation envoyée à : </span>{{ state.confirmedDetails.email }}</p>
+          <p><span>{{ t('rdv.form.clientLabel') }}</span>{{ state.confirmedDetails.name }}</p>
+          <p><span>{{ t('rdv.form.dateLabel') }}</span>{{ state.confirmedDetails.dateText }}</p>
+          <p><span>{{ t('rdv.form.serviceLabel2') }}</span>{{ confirmedServiceLabel }}</p>
+          <p><span>{{ t('rdv.form.emailSentLabel') }}</span>{{ state.confirmedDetails.email }}</p>
         </div>
-        <p>Un email de confirmation vous a été envoyé. À bientôt !</p>
-        <button class="btn-full dark" style="margin-top: 20px;" v-magnetic="0.15" @click="resetForm">Prendre un autre RDV</button>
+        <p>{{ t('rdv.form.confirmedText') }}</p>
+        <button class="btn-full dark" style="margin-top: 20px;" v-magnetic="0.15" @click="resetForm">{{ t('rdv.form.resetButton') }}</button>
       </div>
     </Transition>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useBooking } from '../../composables/useBooking.js'
 
+const { t, tm } = useI18n()
 const { state, summaryText, selectService, submitBooking, resetBooking } = useBooking()
 
-const serviceOptions = [
-  { name: 'Réparation', icon: '🔧' },
-  { name: 'Installation', icon: '💿' },
-  { name: 'Conseil', icon: '💡' },
-  { name: 'Optimisation', icon: '🚀' },
-]
+const serviceOptions = computed(() => tm('rdv.form.services'))
+const confirmedServiceLabel = computed(
+  () => serviceOptions.value.find((o) => o.value === state.confirmedDetails?.service)?.label ?? state.confirmedDetails?.service,
+)
 
 const name = ref('')
 const phone = ref('')
@@ -81,15 +81,15 @@ const description = ref('')
 async function submit() {
   if (state.submitting) return
   if (!state.selectedDay || !state.selectedSlot) {
-    alert('Veuillez sélectionner une date et un créneau.')
+    alert(t('rdv.form.alertNoSlot'))
     return
   }
   if (!state.selectedService) {
-    alert('Veuillez choisir un type de service.')
+    alert(t('rdv.form.alertNoService'))
     return
   }
   if (!name.value.trim() || !phone.value.trim() || !email.value.trim()) {
-    alert('Veuillez remplir tous les champs obligatoires.')
+    alert(t('rdv.form.alertMissingFields'))
     return
   }
   await submitBooking({

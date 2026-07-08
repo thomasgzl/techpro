@@ -23,7 +23,7 @@
     </div>
 
     <div class="time-slots" v-if="state.selectedDay">
-      <h4>Créneaux du {{ state.selectedDay }} {{ monthLabel.split(' ')[0] }}</h4>
+      <h4>{{ t('rdv.calendar.slotsFor', { day: state.selectedDay, month: monthLabel.split(' ')[0] }) }}</h4>
       <TransitionGroup name="slot-pop" tag="div" class="slots-grid">
         <div
           v-for="slot in slots"
@@ -40,11 +40,14 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useBooking } from '../../composables/useBooking.js'
 
+const { t, tm } = useI18n()
 const { state, monthLabel, calendarCells, slots, changeMonth, selectDay, selectSlot } = useBooking()
 
-const dayNames = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
+const dayNames = computed(() => tm('rdv.calendar.dayNames'))
 </script>
 
 <style scoped>

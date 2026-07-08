@@ -1,10 +1,16 @@
 <template>
   <footer>
     <div class="footer-logo">TechPro</div>
-    <p>© 2025 TechPro · Annecy & environs · Tous droits réservés</p>
-    <router-link to="/admin" class="admin-link">Espace pro</router-link>
+    <p>{{ t('footer.rights') }}</p>
+    <router-link to="/admin" class="admin-link">{{ t('footer.adminLink') }}</router-link>
   </footer>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
 
 <style scoped>
 footer {

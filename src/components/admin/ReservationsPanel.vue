@@ -39,7 +39,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { supabase } from '../../lib/supabase.js'
-import { MONTHS_FR } from '../../composables/useBooking.js'
+
+// The back office always stays French regardless of the public site's language toggle.
+const MONTHS_FR = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
 
 const emit = defineEmits(['count'])
 

@@ -12,14 +12,20 @@
 </template>
 
 <script setup>
-import { onMounted, nextTick } from 'vue'
+import { onMounted, nextTick, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import NavBar from './components/layout/NavBar.vue'
 import { useSmoothScroll, scrollToTop } from './animation/useSmoothScroll.js'
 import { ScrollTrigger } from './animation/gsap.js'
 
 const route = useRoute()
 const router = useRouter()
+const { t } = useI18n()
+
+watchEffect(() => {
+  document.title = t('meta.title')
+})
 
 onMounted(() => {
   useSmoothScroll()

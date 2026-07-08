@@ -7,6 +7,7 @@ import { vParallax } from './animation/vParallax.js'
 import { vTilt } from './animation/vTilt.js'
 import { vMagnetic } from './animation/vMagnetic.js'
 import { useTheme } from './composables/useTheme.js'
+import { i18n } from './i18n/index.js'
 
 // Applied before mount so the correct theme is set before first paint (no flash).
 useTheme()
@@ -18,4 +19,4 @@ app.directive('parallax', vParallax)
 app.directive('tilt', vTilt)
 app.directive('magnetic', vMagnetic)
 
-app.use(router).mount('#app')
+app.use(i18n).use(router).mount('#app')

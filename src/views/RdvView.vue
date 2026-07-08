@@ -2,9 +2,9 @@
   <div>
     <div class="rdv-layout">
       <GradientOrbs :triple="false" />
-      <div class="section-label" v-reveal>Agenda en ligne</div>
-      <h2 v-reveal="{ delay: 0.05 }">Choisissez votre créneau</h2>
-      <p class="section-intro" v-reveal="{ delay: 0.1 }">Réservez en quelques clics. Vous recevrez une confirmation par email avec tous les détails de votre rendez-vous.</p>
+      <div class="section-label" v-reveal>{{ t('rdv.label') }}</div>
+      <h2 v-reveal="{ delay: 0.05 }">{{ t('rdv.title') }}</h2>
+      <p class="section-intro" v-reveal="{ delay: 0.1 }">{{ t('rdv.intro') }}</p>
 
       <div class="rdv-grid">
         <BookingCalendar />
@@ -16,10 +16,13 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import BookingCalendar from '../components/rdv/BookingCalendar.vue'
 import RdvForm from '../components/rdv/RdvForm.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
 import GradientOrbs from '../components/common/GradientOrbs.vue'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>

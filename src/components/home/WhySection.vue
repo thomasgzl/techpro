@@ -4,10 +4,10 @@
       <GradientOrbs :triple="false" />
       <div class="why-grid">
         <div>
-          <div class="section-label" v-reveal>Pourquoi nous choisir</div>
-          <h2 v-reveal="{ delay: 0.05 }">Simple, rapide et sans mauvaise surprise</h2>
+          <div class="section-label" v-reveal>{{ t('why.label') }}</div>
+          <h2 v-reveal="{ delay: 0.05 }">{{ t('why.title') }}</h2>
           <ul class="why-list" v-reveal="{ children: '.why-item', stagger: 0.1, delay: 0.1 }">
-            <li class="why-item" v-for="item in whyItems" :key="item.title">
+            <li class="why-item" v-for="(item, index) in whyItems" :key="index">
               <div class="why-item-icon">{{ item.icon }}</div>
               <div>
                 <h4>{{ item.title }}</h4>
@@ -17,8 +17,8 @@
           </ul>
         </div>
         <div class="why-visual" v-reveal="{ delay: 0.2, y: 40 }">
-          <span class="why-visual-num">Nouvelle<br>entreprise</span>
-          <p>Nous démarrons à Annecy et ses environs. Soyez parmi nos premiers clients et bénéficiez d'une attention toute particulière !</p>
+          <span class="why-visual-num" v-html="t('why.visual.badge')"></span>
+          <p>{{ t('why.visual.text') }}</p>
         </div>
       </div>
     </div>
@@ -26,30 +26,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import GradientOrbs from '../common/GradientOrbs.vue'
 
-const whyItems = [
-  {
-    icon: '✅',
-    title: 'Devis gratuit et sans engagement',
-    description: 'On vous explique le problème et le coût avant de commencer. Aucun frais caché, jamais.',
-  },
-  {
-    icon: '⚡',
-    title: 'Intervention rapide',
-    description: 'La plupart des réparations courantes sont effectuées dans la journée, parfois en une heure.',
-  },
-  {
-    icon: '🤝',
-    title: 'On vous explique tout',
-    description: 'On vulgarise, on forme, on montre. Pas de jargon, pas de condescendance.',
-  },
-  {
-    icon: '🔒',
-    title: 'Garantie sur toutes les réparations',
-    description: 'Chaque intervention est couverte 3 mois. Si le problème revient, on revient.',
-  },
-]
+const { t, tm } = useI18n()
+const whyItems = computed(() => tm('why.items'))
 </script>
 
 <style scoped>

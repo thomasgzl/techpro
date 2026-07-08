@@ -11,15 +11,18 @@
     </router-link>
     <ul class="nav-links" ref="linksEl">
       <div class="nav-pill" ref="pillEl"></div>
-      <li><router-link to="/" exact-active-class="active">Services</router-link></li>
-      <li><router-link to="/contact" active-class="active">Contact</router-link></li>
-      <li><router-link to="/rdv" class="nav-cta" active-class="active">Prendre RDV</router-link></li>
+      <li><router-link to="/" exact-active-class="active">{{ t('nav.services') }}</router-link></li>
+      <li><router-link to="/contact" active-class="active">{{ t('nav.contact') }}</router-link></li>
+      <li><router-link to="/rdv" class="nav-cta" active-class="active">{{ t('nav.rdv') }}</router-link></li>
     </ul>
+    <button class="lang-toggle" type="button" @click="toggleLocale" :aria-label="t('nav.langToggleLabel')">
+      {{ locale === 'fr' ? 'EN' : 'FR' }}
+    </button>
     <button
       class="theme-toggle"
       type="button"
       @click="toggleTheme"
-      :aria-label="theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'"
+      :aria-label="theme === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')"
     >
       <Transition name="icon-swap" mode="out-in">
         <svg v-if="theme === 'dark'" key="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -37,14 +40,18 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { gsap } from '../../animation/gsap.js'
 import { useTheme } from '../../composables/useTheme.js'
+import { useLocale } from '../../composables/useLocale.js'
 
 const route = useRoute()
 const linksEl = ref(null)
 const pillEl = ref(null)
 const scrolled = ref(false)
 const { theme, toggleTheme } = useTheme()
+const { locale, toggleLocale } = useLocale()
+const { t } = useI18n()
 
 function movePill() {
   const container = linksEl.value
@@ -181,6 +188,29 @@ nav.scrolled {
 
 .nav-cta:hover { background: var(--accent2) !important; }
 
+.lang-toggle {
+  height: 40px;
+  padding: 0 14px;
+  flex-shrink: 0;
+  margin-left: 10px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.lang-toggle:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
 .theme-toggle {
   width: 40px;
   height: 40px;
@@ -215,5 +245,6 @@ nav.scrolled {
 @media (max-width: 768px) {
   nav { left: 12px; right: 12px; padding: 0 10px 0 18px; }
   .theme-toggle { width: 36px; height: 36px; margin-left: 6px; }
+  .lang-toggle { height: 36px; padding: 0 10px; margin-left: 6px; }
 }
 </style>

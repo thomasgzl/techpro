@@ -1,12 +1,12 @@
 <template>
   <div class="section">
     <div class="section-number">01</div>
-    <div class="section-label" v-reveal>Ce que nous faisons</div>
-    <h2 v-reveal="{ delay: 0.05 }">Tous vos besoins informatiques, couverts</h2>
-    <p class="section-intro" v-reveal="{ delay: 0.1 }">Du simple conseil au dépannage urgent, nous intervenons sur l'ensemble de vos appareils numériques avec expertise et transparence.</p>
+    <div class="section-label" v-reveal>{{ t('services.label') }}</div>
+    <h2 v-reveal="{ delay: 0.05 }">{{ t('services.title') }}</h2>
+    <p class="section-intro" v-reveal="{ delay: 0.1 }">{{ t('services.intro') }}</p>
 
     <div class="services-grid" v-reveal="{ children: '.service-card', stagger: 0.1 }">
-      <div class="service-card glass" v-tilt v-for="service in services" :key="service.title">
+      <div class="service-card glass" v-tilt v-for="(service, index) in services" :key="index">
         <div class="service-icon">{{ service.icon }}</div>
         <h3>{{ service.title }}</h3>
         <p>{{ service.description }}</p>
@@ -19,7 +19,11 @@
 </template>
 
 <script setup>
-import { services } from '../../data/services.js'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm } = useI18n()
+const services = computed(() => tm('services.items'))
 </script>
 
 <style scoped>
