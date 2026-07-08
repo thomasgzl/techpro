@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
           <label>{{ t('contact.form.email') }}</label>
-          <input type="email" :placeholder="t('contact.form.emailPlaceholder')" v-model="form.email" :style="errorStyle('email')">
+          <input type="email" :placeholder="`${t('contact.form.emailPlaceholderUser')}@${t('contact.form.emailPlaceholderDomain')}`" v-model="form.email" :style="errorStyle('email')">
         </div>
         <div class="form-group">
           <label>{{ t('contact.form.subject') }}</label>

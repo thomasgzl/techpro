@@ -15,25 +15,27 @@
       <li><router-link to="/contact" active-class="active">{{ t('nav.contact') }}</router-link></li>
       <li><router-link to="/rdv" class="nav-cta" active-class="active">{{ t('nav.rdv') }}</router-link></li>
     </ul>
-    <button class="lang-toggle" type="button" @click="toggleLocale" :aria-label="t('nav.langToggleLabel')">
-      {{ locale === 'fr' ? 'EN' : 'FR' }}
-    </button>
-    <button
-      class="theme-toggle"
-      type="button"
-      @click="toggleTheme"
-      :aria-label="theme === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')"
-    >
-      <Transition name="icon-swap" mode="out-in">
-        <svg v-if="theme === 'dark'" key="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-        </svg>
-        <svg v-else key="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
-        </svg>
-      </Transition>
-    </button>
+    <div class="nav-actions">
+      <button class="lang-toggle" type="button" @click="toggleLocale" :aria-label="t('nav.langToggleLabel')">
+        {{ locale === 'fr' ? 'EN' : 'FR' }}
+      </button>
+      <button
+        class="theme-toggle"
+        type="button"
+        @click="toggleTheme"
+        :aria-label="theme === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')"
+      >
+        <Transition name="icon-swap" mode="out-in">
+          <svg v-if="theme === 'dark'" key="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg v-else key="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+          </svg>
+        </Transition>
+      </button>
+    </div>
   </nav>
 </template>
 
@@ -188,11 +190,18 @@ nav.scrolled {
 
 .nav-cta:hover { background: var(--accent2) !important; }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
 .lang-toggle {
   height: 40px;
   padding: 0 14px;
   flex-shrink: 0;
-  margin-left: 10px;
   border-radius: 50px;
   border: 1px solid var(--border);
   background: transparent;
@@ -215,7 +224,6 @@ nav.scrolled {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  margin-left: 10px;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: transparent;
@@ -244,7 +252,8 @@ nav.scrolled {
 
 @media (max-width: 768px) {
   nav { left: 12px; right: 12px; padding: 0 10px 0 18px; }
-  .theme-toggle { width: 36px; height: 36px; margin-left: 6px; }
-  .lang-toggle { height: 36px; padding: 0 10px; margin-left: 6px; }
+  .nav-actions { gap: 6px; margin-left: 6px; }
+  .theme-toggle { width: 36px; height: 36px; }
+  .lang-toggle { height: 36px; padding: 0 10px; }
 }
 </style>

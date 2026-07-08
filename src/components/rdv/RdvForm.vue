@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
           <label>{{ t('rdv.form.email') }}</label>
-          <input type="email" :placeholder="t('rdv.form.emailPlaceholder')" v-model="email">
+          <input type="email" :placeholder="`${t('rdv.form.emailPlaceholderUser')}@${t('rdv.form.emailPlaceholderDomain')}`" v-model="email">
         </div>
         <div class="form-group">
           <label>{{ t('rdv.form.description') }}</label>
